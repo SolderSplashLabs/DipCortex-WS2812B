@@ -1,0 +1,402 @@
+Archive member included because of file (symbol)
+
+Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+                              ./src/main.o (SystemCoreClockUpdate)
+e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+                              ./src/cr_startup_lpc13uxx.o (__main)
+
+Allocating common symbols
+Common symbol       size              file
+
+FrameBuffer         0x1e0             ./src/main.o
+
+Discarded input sections
+
+ .text          0x00000000        0x0 ./src/lib/SolderSplashLpc.o
+ .data          0x00000000        0x0 ./src/lib/SolderSplashLpc.o
+ .bss           0x00000000        0x0 ./src/lib/SolderSplashLpc.o
+ .text          0x00000000        0x0 ./src/cr_startup_lpc13uxx.o
+ .data          0x00000000        0x0 ./src/cr_startup_lpc13uxx.o
+ .bss           0x00000000        0x0 ./src/cr_startup_lpc13uxx.o
+ .text          0x00000000        0x0 ./src/crp.o
+ .data          0x00000000        0x0 ./src/crp.o
+ .bss           0x00000000        0x0 ./src/crp.o
+ .crp           0x00000000        0x4 ./src/crp.o
+ .text          0x00000000        0x0 ./src/main.o
+ .data          0x00000000        0x0 ./src/main.o
+ .bss           0x00000000        0x0 ./src/main.o
+ .text.SingleStripRainbow
+                0x00000000       0x84 ./src/main.o
+ .data.brightness.4582
+                0x00000000        0x1 ./src/main.o
+ .text          0x00000000        0x0 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .data          0x00000000        0x0 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .bss           0x00000000        0x0 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .text          0x00000000        0x0 e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+ .data          0x00000000        0x0 e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+ .bss           0x00000000        0x0 e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+MFlash64         0x00000000         0x00010000         xr
+RamLoc8          0x10000000         0x00002000         xrw
+RamUsb2          0x20004000         0x00000800         xrw
+RamPeriph2       0x20000000         0x00000800         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD ./src/lib/SolderSplashLpc.o
+LOAD ./src/cr_startup_lpc13uxx.o
+LOAD ./src/crp.o
+LOAD ./src/main.o
+LOAD Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a
+START GROUP
+LOAD e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a
+LOAD e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/armv7-m\libcr_eabihelpers.a
+END GROUP
+                0x00010000                __top_MFlash64 = 0x10000
+                0x10002000                __top_RamLoc8 = 0x10002000
+                0x20004800                __top_RamUsb2 = 0x20004800
+                0x20000800                __top_RamPeriph2 = 0x20000800
+
+.text           0x00000000     0x1338
+ FILL mask 0xff
+                0x00000000                __vectors_start__ = ABSOLUTE (.)
+ *(.isr_vector)
+ .isr_vector    0x00000000       0xc0 ./src/cr_startup_lpc13uxx.o
+                0x00000000                g_pfnVectors
+                0x000000c0                . = ALIGN (0x4)
+                0x000000c0                __section_table_start = .
+                0x000000c0                __data_section_table = .
+                0x000000c0        0x4 LONG 0x1338 LOADADDR (.data)
+                0x000000c4        0x4 LONG 0x10000000 ADDR (.data)
+                0x000000c8        0x4 LONG 0x8 SIZEOF (.data)
+                0x000000cc        0x4 LONG 0x1338 LOADADDR (.data_RAM2)
+                0x000000d0        0x4 LONG 0x20004000 ADDR (.data_RAM2)
+                0x000000d4        0x4 LONG 0x0 SIZEOF (.data_RAM2)
+                0x000000d8        0x4 LONG 0x1338 LOADADDR (.data_RAM3)
+                0x000000dc        0x4 LONG 0x20000000 ADDR (.data_RAM3)
+                0x000000e0        0x4 LONG 0x0 SIZEOF (.data_RAM3)
+                0x000000e4                __data_section_table_end = .
+                0x000000e4                __bss_section_table = .
+                0x000000e4        0x4 LONG 0x10000008 ADDR (.bss)
+                0x000000e8        0x4 LONG 0x1f0 SIZEOF (.bss)
+                0x000000ec        0x4 LONG 0x20004000 ADDR (.bss_RAM2)
+                0x000000f0        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
+                0x000000f4        0x4 LONG 0x20000000 ADDR (.bss_RAM3)
+                0x000000f8        0x4 LONG 0x0 SIZEOF (.bss_RAM3)
+                0x000000fc                __bss_section_table_end = .
+                0x000000fc                __section_table_end = .
+ *(.after_vectors*)
+ .after_vectors
+                0x000000fc      0x174 ./src/cr_startup_lpc13uxx.o
+                0x000000fc                data_init
+                0x0000014c                bss_init
+                0x0000018c                ResetISR
+                0x00000220                NMI_Handler
+                0x00000228                HardFault_Handler
+                0x00000230                MemManage_Handler
+                0x00000238                BusFault_Handler
+                0x00000240                UsageFault_Handler
+                0x00000248                SVC_Handler
+                0x00000250                DebugMon_Handler
+                0x00000258                PendSV_Handler
+                0x00000268                PIN_INT6_IRQHandler
+                0x00000268                IntDefaultHandler
+                0x00000268                PIN_INT4_IRQHandler
+                0x00000268                SSP0_IRQHandler
+                0x00000268                USBWakeup_IRQHandler
+                0x00000268                CT16B1_IRQHandler
+                0x00000268                CT32B1_IRQHandler
+                0x00000268                PVTCIRCUIT_IRQHandler
+                0x00000268                OSCFAIL_IRQHandler
+                0x00000268                PIN_INT2_IRQHandler
+                0x00000268                USB_FIQHandler
+                0x00000268                ADC_IRQHandler
+                0x00000268                SSP1_IRQHandler
+                0x00000268                PIN_INT7_IRQHandler
+                0x00000268                PIN_INT1_IRQHandler
+                0x00000268                USB_IRQHandler
+                0x00000268                BOD_IRQHandler
+                0x00000268                I2C_IRQHandler
+                0x00000268                USART_IRQHandler
+                0x00000268                WDT_IRQHandler
+                0x00000268                CT16B0_IRQHandler
+                0x00000268                PIN_INT0_IRQHandler
+                0x00000268                CT32B0_IRQHandler
+                0x00000268                GINT0_IRQHandler
+                0x00000268                OSTIMER_IRQHandler
+                0x00000268                PIN_INT3_IRQHandler
+                0x00000268                PIN_INT5_IRQHandler
+                0x00000268                FMC_IRQHandler
+                0x00000268                GINT1_IRQHandler
+ *(.text*)
+ .text.LpcLowPowerIoInit
+                0x00000270      0x34c ./src/lib/SolderSplashLpc.o
+                0x00000270                LpcLowPowerIoInit
+ .text.NVIC_SetPriority
+                0x000005bc       0x5c ./src/main.o
+ .text.SysTick_Config
+                0x00000618       0x64 ./src/main.o
+ .text.ColourWheel
+                0x0000067c      0x10c ./src/main.o
+                0x0000067c                ColourWheel
+ .text.DecreaseBrightness
+                0x00000788       0x68 ./src/main.o
+                0x00000788                DecreaseBrightness
+ .text.RainBowStep
+                0x000007f0       0xf0 ./src/main.o
+                0x000007f0                RainBowStep
+ .text.SpiNibble
+                0x000008e0       0x44 ./src/main.o
+                0x000008e0                SpiNibble
+ .text.UpdateLedStrip_NibbleMode
+                0x00000924       0x90 ./src/main.o
+                0x00000924                UpdateLedStrip_NibbleMode
+ .text.StepMode
+                0x000009b4      0x158 ./src/main.o
+                0x000009b4                StepMode
+ .text.CentrePulse
+                0x00000b0c      0x178 ./src/main.o
+                0x00000b0c                CentrePulse
+ .text.Loopy    0x00000c84       0xfc ./src/main.o
+                0x00000c84                Loopy
+ .text.Christmas
+                0x00000d80      0x164 ./src/main.o
+                0x00000d80                Christmas
+ .text.SysTick_Handler
+                0x00000ee4       0xfc ./src/main.o
+                0x00000ee4                SysTick_Handler
+ .text.InitButtons
+                0x00000fe0       0xc0 ./src/main.o
+                0x00000fe0                InitButtons
+ .text.Init     0x000010a0       0xe8 ./src/main.o
+                0x000010a0                Init
+ .text.main     0x00001188       0x24 ./src/main.o
+                0x00001188                main
+ .text.SystemCoreClockUpdate
+                0x000011ac       0x9c Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+                0x000011ac                SystemCoreClockUpdate
+ .text.SystemInit
+                0x00001248       0x90 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+                0x00001248                SystemInit
+ .text.__weak_main
+                0x000012d8        0x4 e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+                0x000012d8                __weak_main
+                0x000012d8                __main
+ *(.rodata .rodata.*)
+ .rodata.LedBitPattern
+                0x000012dc       0x20 ./src/main.o
+                0x000012dc                LedBitPattern
+ .rodata.CSWTCH.8
+                0x000012fc       0x3c Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+                0x00001338                . = ALIGN (0x4)
+
+.glue_7         0x00001338        0x0
+ .glue_7        0x00000000        0x0 linker stubs
+
+.glue_7t        0x00001338        0x0
+ .glue_7t       0x00000000        0x0 linker stubs
+
+.vfp11_veneer   0x00001338        0x0
+ .vfp11_veneer  0x00000000        0x0 linker stubs
+
+.v4_bx          0x00001338        0x0
+ .v4_bx         0x00000000        0x0 linker stubs
+
+.ARM.extab
+ *(.ARM.extab* .gnu.linkonce.armextab.*)
+                0x00001338                __exidx_start = .
+
+.ARM.exidx
+ *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+                0x00001338                __exidx_end = .
+                0x00001338                _etext = .
+
+.data_RAM2      0x20004000        0x0 load address 0x00001338
+ FILL mask 0xff
+ *(.data.$RAM2*)
+ *(.data.$RamUsb2*)
+                0x20004000                . = ALIGN (0x4)
+
+.data_RAM3      0x20000000        0x0 load address 0x00001338
+ FILL mask 0xff
+ *(.data.$RAM3*)
+ *(.data.$RamPeriph2*)
+                0x20000000                . = ALIGN (0x4)
+
+.uninit_RESERVED
+                0x10000000        0x0
+ *(.bss.$RESERVED*)
+                0x10000000                . = ALIGN (0x4)
+                0x10000000                _end_uninit_RESERVED = .
+
+.data           0x10000000        0x8 load address 0x00001338
+ FILL mask 0xff
+                0x10000000                _data = .
+ *(vtable)
+ *(.data*)
+ .data.redUp.4573
+                0x10000000        0x1 ./src/main.o
+ .data.green.4570
+                0x10000001        0x1 ./src/main.o
+ .data.brightnessLvl.4522
+                0x10000002        0x1 ./src/main.o
+ *fill*         0x10000003        0x1 00
+ .data.SystemCoreClock
+                0x10000004        0x4 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+                0x10000004                SystemCoreClock
+                0x10000008                . = ALIGN (0x4)
+                0x10000008                _edata = .
+
+.bss_RAM2       0x20004000        0x0
+ *(.bss.$RAM2*)
+ *(.bss.$RamUsb2*)
+                0x20004000                . = ALIGN (0x4)
+
+.bss_RAM3       0x20000000        0x0
+ *(.bss.$RAM3*)
+ *(.bss.$RamPeriph2*)
+                0x20000000                . = ALIGN (0x4)
+
+.bss            0x10000008      0x1f0
+                0x10000008                _bss = .
+ *(.bss*)
+ .bss.CurrentMode
+                0x10000008        0x1 ./src/main.o
+                0x10000008                CurrentMode
+ *fill*         0x10000009        0x3 00
+ .bss.i.4606    0x1000000c        0x4 ./src/main.o
+ .bss.msCounter.4589
+                0x10000010        0x4 ./src/main.o
+ .bss.buttonWasPressed.4590
+                0x10000014        0x1 ./src/main.o
+ .bss.red.4571  0x10000015        0x1 ./src/main.o
+ .bss.greenUp.4572
+                0x10000016        0x1 ./src/main.o
+ .bss.step.4521
+                0x10000017        0x1 ./src/main.o
+ *(COMMON)
+ COMMON         0x10000018      0x1e0 ./src/main.o
+                0x10000018                FrameBuffer
+                0x100001f8                . = ALIGN (0x4)
+                0x100001f8                _ebss = .
+                0x100001f8                PROVIDE (end, .)
+
+.noinit_RAM2    0x20004000        0x0
+ *(.noinit.$RAM2*)
+ *(.noinit.$RamUsb2*)
+                0x20004000                . = ALIGN (0x4)
+
+.noinit_RAM3    0x20000000        0x0
+ *(.noinit.$RAM3*)
+ *(.noinit.$RamPeriph2*)
+                0x20000000                . = ALIGN (0x4)
+
+.noinit         0x100001f8        0x0
+                0x100001f8                _noinit = .
+ *(.noinit*)
+                0x100001f8                . = ALIGN (0x4)
+                0x100001f8                _end_noinit = .
+                0x100001f8                PROVIDE (_pvHeapStart, .)
+                0x10002000                PROVIDE (_vStackTop, (__top_RamLoc8 - 0x0))
+OUTPUT(Dip-WS2812B.axf elf32-littlearm)
+
+.debug_info     0x00000000     0x226e
+ .debug_info    0x00000000      0x43b ./src/lib/SolderSplashLpc.o
+ .debug_info    0x0000043b      0x2b1 ./src/cr_startup_lpc13uxx.o
+ .debug_info    0x000006ec       0x48 ./src/crp.o
+ .debug_info    0x00000734     0x1519 ./src/main.o
+ .debug_info    0x00001c4d      0x621 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+
+.debug_abbrev   0x00000000      0x4fd
+ .debug_abbrev  0x00000000       0x91 ./src/lib/SolderSplashLpc.o
+ .debug_abbrev  0x00000091       0xed ./src/cr_startup_lpc13uxx.o
+ .debug_abbrev  0x0000017e       0x39 ./src/crp.o
+ .debug_abbrev  0x000001b7      0x23c ./src/main.o
+ .debug_abbrev  0x000003f3      0x10a Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+
+.debug_loc      0x00000000      0x65b
+ .debug_loc     0x00000000       0x2c ./src/lib/SolderSplashLpc.o
+ .debug_loc     0x0000002c      0x260 ./src/cr_startup_lpc13uxx.o
+ .debug_loc     0x0000028c      0x350 ./src/main.o
+ .debug_loc     0x000005dc       0x7f Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+
+.debug_aranges  0x00000000      0x160
+ .debug_aranges
+                0x00000000       0x20 ./src/lib/SolderSplashLpc.o
+ .debug_aranges
+                0x00000020       0x80 ./src/cr_startup_lpc13uxx.o
+ .debug_aranges
+                0x000000a0       0x98 ./src/main.o
+ .debug_aranges
+                0x00000138       0x28 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+
+.debug_ranges   0x00000000      0x120
+ .debug_ranges  0x00000000       0x10 ./src/lib/SolderSplashLpc.o
+ .debug_ranges  0x00000010       0x70 ./src/cr_startup_lpc13uxx.o
+ .debug_ranges  0x00000080       0x88 ./src/main.o
+ .debug_ranges  0x00000108       0x18 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+
+.debug_line     0x00000000     0x117e
+ .debug_line    0x00000000      0x49e ./src/lib/SolderSplashLpc.o
+ .debug_line    0x0000049e       0xd9 ./src/cr_startup_lpc13uxx.o
+ .debug_line    0x00000577       0xb0 ./src/crp.o
+ .debug_line    0x00000627      0x73c ./src/main.o
+ .debug_line    0x00000d63      0x41b Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+
+.debug_macinfo  0x00000000    0x1ab9a
+ .debug_macinfo
+                0x00000000     0x7798 ./src/lib/SolderSplashLpc.o
+ .debug_macinfo
+                0x00007798     0x2313 ./src/cr_startup_lpc13uxx.o
+ .debug_macinfo
+                0x00009aab     0x23a9 ./src/crp.o
+ .debug_macinfo
+                0x0000be54     0x7a90 ./src/main.o
+ .debug_macinfo
+                0x000138e4     0x72b6 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+
+.debug_str      0x00000000      0xcaf
+ .debug_str     0x00000000      0x2f9 ./src/lib/SolderSplashLpc.o
+                                0x323 (size before relaxing)
+ .debug_str     0x000002f9      0x178 ./src/cr_startup_lpc13uxx.o
+                                0x20a (size before relaxing)
+ .debug_str     0x00000471       0x16 ./src/crp.o
+                                 0xa2 (size before relaxing)
+ .debug_str     0x00000487      0x7a2 ./src/main.o
+                                0xabc (size before relaxing)
+ .debug_str     0x00000c29       0x86 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+                                0x3f1 (size before relaxing)
+
+.comment        0x00000000       0x70
+ .comment       0x00000000       0x70 ./src/lib/SolderSplashLpc.o
+                                 0x71 (size before relaxing)
+ .comment       0x00000000       0x71 ./src/cr_startup_lpc13uxx.o
+ .comment       0x00000000       0x71 ./src/crp.o
+ .comment       0x00000000       0x71 ./src/main.o
+ .comment       0x00000000       0x71 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .comment       0x00000000       0x71 e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+
+.ARM.attributes
+                0x00000000       0x33
+ .ARM.attributes
+                0x00000000       0x33 ./src/lib/SolderSplashLpc.o
+ .ARM.attributes
+                0x00000033       0x33 ./src/cr_startup_lpc13uxx.o
+ .ARM.attributes
+                0x00000066       0x33 ./src/crp.o
+ .ARM.attributes
+                0x00000099       0x33 ./src/main.o
+ .ARM.attributes
+                0x000000cc       0x33 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .ARM.attributes
+                0x000000ff       0x33 e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
+
+.debug_frame    0x00000000      0x39c
+ .debug_frame   0x00000000       0x28 ./src/lib/SolderSplashLpc.o
+ .debug_frame   0x00000028      0x158 ./src/cr_startup_lpc13uxx.o
+ .debug_frame   0x00000180      0x1e0 ./src/main.o
+ .debug_frame   0x00000360       0x3c Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
