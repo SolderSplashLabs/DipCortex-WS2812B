@@ -25,10 +25,6 @@ Discarded input sections
  .text          0x00000000        0x0 ./src/main.o
  .data          0x00000000        0x0 ./src/main.o
  .bss           0x00000000        0x0 ./src/main.o
- .text.SingleStripRainbow
-                0x00000000       0x84 ./src/main.o
- .data.brightness.4582
-                0x00000000        0x1 ./src/main.o
  .text          0x00000000        0x0 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
  .data          0x00000000        0x0 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
  .bss           0x00000000        0x0 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
@@ -155,9 +151,8 @@ END GROUP
  .text.UpdateLedStrip_NibbleMode
                 0x00000924       0x90 ./src/main.o
                 0x00000924                UpdateLedStrip_NibbleMode
- .text.StepMode
-                0x000009b4      0x158 ./src/main.o
-                0x000009b4                StepMode
+ .text.Pulse    0x000009b4      0x158 ./src/main.o
+                0x000009b4                Pulse
  .text.CentrePulse
                 0x00000b0c      0x178 ./src/main.o
                 0x00000b0c                CentrePulse
@@ -268,10 +263,10 @@ END GROUP
                 0x10000008        0x1 ./src/main.o
                 0x10000008                CurrentMode
  *fill*         0x10000009        0x3 00
- .bss.i.4606    0x1000000c        0x4 ./src/main.o
- .bss.msCounter.4589
+ .bss.i.4598    0x1000000c        0x4 ./src/main.o
+ .bss.msCounter.4581
                 0x10000010        0x4 ./src/main.o
- .bss.buttonWasPressed.4590
+ .bss.buttonWasPressed.4582
                 0x10000014        0x1 ./src/main.o
  .bss.red.4571  0x10000015        0x1 ./src/main.o
  .bss.greenUp.4572
@@ -304,12 +299,12 @@ END GROUP
                 0x10002000                PROVIDE (_vStackTop, (__top_RamLoc8 - 0x0))
 OUTPUT(Dip-WS2812B.axf elf32-littlearm)
 
-.debug_info     0x00000000     0x226e
+.debug_info     0x00000000     0x2236
  .debug_info    0x00000000      0x43b ./src/lib/SolderSplashLpc.o
  .debug_info    0x0000043b      0x2b1 ./src/cr_startup_lpc13uxx.o
  .debug_info    0x000006ec       0x48 ./src/crp.o
- .debug_info    0x00000734     0x1519 ./src/main.o
- .debug_info    0x00001c4d      0x621 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .debug_info    0x00000734     0x14e1 ./src/main.o
+ .debug_info    0x00001c15      0x621 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
 
 .debug_abbrev   0x00000000      0x4fd
  .debug_abbrev  0x00000000       0x91 ./src/lib/SolderSplashLpc.o
@@ -318,36 +313,36 @@ OUTPUT(Dip-WS2812B.axf elf32-littlearm)
  .debug_abbrev  0x000001b7      0x23c ./src/main.o
  .debug_abbrev  0x000003f3      0x10a Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
 
-.debug_loc      0x00000000      0x65b
+.debug_loc      0x00000000      0x623
  .debug_loc     0x00000000       0x2c ./src/lib/SolderSplashLpc.o
  .debug_loc     0x0000002c      0x260 ./src/cr_startup_lpc13uxx.o
- .debug_loc     0x0000028c      0x350 ./src/main.o
- .debug_loc     0x000005dc       0x7f Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .debug_loc     0x0000028c      0x318 ./src/main.o
+ .debug_loc     0x000005a4       0x7f Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
 
-.debug_aranges  0x00000000      0x160
+.debug_aranges  0x00000000      0x158
  .debug_aranges
                 0x00000000       0x20 ./src/lib/SolderSplashLpc.o
  .debug_aranges
                 0x00000020       0x80 ./src/cr_startup_lpc13uxx.o
  .debug_aranges
-                0x000000a0       0x98 ./src/main.o
+                0x000000a0       0x90 ./src/main.o
  .debug_aranges
-                0x00000138       0x28 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+                0x00000130       0x28 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
 
-.debug_ranges   0x00000000      0x120
+.debug_ranges   0x00000000      0x118
  .debug_ranges  0x00000000       0x10 ./src/lib/SolderSplashLpc.o
  .debug_ranges  0x00000010       0x70 ./src/cr_startup_lpc13uxx.o
- .debug_ranges  0x00000080       0x88 ./src/main.o
- .debug_ranges  0x00000108       0x18 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .debug_ranges  0x00000080       0x80 ./src/main.o
+ .debug_ranges  0x00000100       0x18 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
 
-.debug_line     0x00000000     0x117e
+.debug_line     0x00000000     0x114e
  .debug_line    0x00000000      0x49e ./src/lib/SolderSplashLpc.o
  .debug_line    0x0000049e       0xd9 ./src/cr_startup_lpc13uxx.o
  .debug_line    0x00000577       0xb0 ./src/crp.o
- .debug_line    0x00000627      0x73c ./src/main.o
- .debug_line    0x00000d63      0x41b Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .debug_line    0x00000627      0x70c ./src/main.o
+ .debug_line    0x00000d33      0x41b Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
 
-.debug_macinfo  0x00000000    0x1ab9a
+.debug_macinfo  0x00000000    0x1ab80
  .debug_macinfo
                 0x00000000     0x7798 ./src/lib/SolderSplashLpc.o
  .debug_macinfo
@@ -355,20 +350,20 @@ OUTPUT(Dip-WS2812B.axf elf32-littlearm)
  .debug_macinfo
                 0x00009aab     0x23a9 ./src/crp.o
  .debug_macinfo
-                0x0000be54     0x7a90 ./src/main.o
+                0x0000be54     0x7a76 ./src/main.o
  .debug_macinfo
-                0x000138e4     0x72b6 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+                0x000138ca     0x72b6 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
 
-.debug_str      0x00000000      0xcaf
+.debug_str      0x00000000      0xc93
  .debug_str     0x00000000      0x2f9 ./src/lib/SolderSplashLpc.o
                                 0x323 (size before relaxing)
  .debug_str     0x000002f9      0x178 ./src/cr_startup_lpc13uxx.o
                                 0x20a (size before relaxing)
  .debug_str     0x00000471       0x16 ./src/crp.o
                                  0xa2 (size before relaxing)
- .debug_str     0x00000487      0x7a2 ./src/main.o
-                                0xabc (size before relaxing)
- .debug_str     0x00000c29       0x86 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .debug_str     0x00000487      0x786 ./src/main.o
+                                0xaa6 (size before relaxing)
+ .debug_str     0x00000c0d       0x86 Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
                                 0x3f1 (size before relaxing)
 
 .comment        0x00000000       0x70
@@ -395,8 +390,8 @@ OUTPUT(Dip-WS2812B.axf elf32-littlearm)
  .ARM.attributes
                 0x000000ff       0x33 e:/dev/nxp/lpcxpresso_6.0.2_151/lpcxpresso/tools/bin/../lib/gcc/arm-none-eabi/4.6.2/../../../../arm-none-eabi/lib/armv7-m\libcr_c.a(__weak__main.o)
 
-.debug_frame    0x00000000      0x39c
+.debug_frame    0x00000000      0x37c
  .debug_frame   0x00000000       0x28 ./src/lib/SolderSplashLpc.o
  .debug_frame   0x00000028      0x158 ./src/cr_startup_lpc13uxx.o
- .debug_frame   0x00000180      0x1e0 ./src/main.o
- .debug_frame   0x00000360       0x3c Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)
+ .debug_frame   0x00000180      0x1c0 ./src/main.o
+ .debug_frame   0x00000340       0x3c Z:\SolderSplash\Software\DipWS2812B\CMSISv2p10_LPC13Uxx\Debug\libCMSISv2p10_LPC13Uxx.a(system_LPC13Uxx.o)

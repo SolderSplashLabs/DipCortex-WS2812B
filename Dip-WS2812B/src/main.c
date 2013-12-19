@@ -1,12 +1,57 @@
+/*
+  ____        _     _           ____        _           _		 _          _
+ / ___|  ___ | | __| | ___ _ __/ ___| _ __ | | __ _ ___| |__	| |    __ _| |__  ___
+ \___ \ / _ \| |/ _` |/ _ \ '__\___ \| '_ \| |/ _` / __| '_ \	| |   / _` | '_ \/ __|
+  ___) | (_) | | (_| |  __/ |   ___) | |_) | | (_| \__ \ | | |	| |__| (_| | |_) \__ \
+ |____/ \___/|_|\__,_|\___|_|  |____/| .__/|_|\__,_|___/_| |_|	|_____\__,_|_.__/|___/
+                                     |_|
+ (C)SolderSplash Labs 2013 - www.soldersplash.co.uk - C. Matthews - R. Steel
+
+
+	@file     main.c
+	@author   Carl Matthews (soldersplash.co.uk)
+	@date     12/12/2013
+
+    @section LICENSE
+
+	Software License Agreement (BSD License)
+
+    Copyright (c) 2013, C. Matthews - R. Steel (soldersplash.co.uk)
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without
+    modification, are permitted provided that the following conditions are met:
+    1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+    2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+    3. Neither the name of the copyright holders nor the
+    names of its contributors may be used to endorse or promote products
+    derived from this software without specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ''AS IS'' AND ANY
+    EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY
+    DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+    (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+    LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+    ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+    (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+	@section DESCRIPTION
+
+*/
 
 #include "SolderSplashLpc.h"
 #include "main.h"
 
-#define LED_1		0xF8
-#define LED_0		0xC0
 
-// Using a transistor to level shift, it also inverts, so we invert the bit patterns
-//#define INVERTED_COMS
+// IF you use a transistor to level shift the coms, it will also invert it, so we invert the bit patterns
+
 //#define INVERTED_COMS
 #ifdef INVERTED_COMS
 
@@ -64,18 +109,6 @@ const uint16_t	LedBitPattern[16] =
 
 uint32_t FrameBuffer[NO_OF_RGB_LEDS];
 
-/*
-uint32_t FrameBuffer[] = { \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
-		0, 0, 0, 0, 0, 0, 0, 0};
-*/
-
 
 enum COLOUR_MODE_TYPE
 {
@@ -89,7 +122,11 @@ enum COLOUR_MODE_TYPE
 
 uint8_t CurrentMode = COLOUR_RAINBOW;
 
-
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief Generate a colour
+*/
+// ------------------------------------------------------------------------------------------------------------
 uint32_t ColourWheel ( uint8_t wheelPos, uint8_t brightness )
 {
 uint8_t red = 0;
@@ -130,11 +167,17 @@ uint32_t result = 0;
 	return ( result );
 }
 
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief Reduce the brightness of the supplied Pixel value
+*/
+// ------------------------------------------------------------------------------------------------------------
 uint32_t DecreaseBrightness ( uint32_t pixel, uint8_t brightness )
 {
 uint8_t *outColour;
 uint8_t i;
 
+	// TODO : if I was doing it properly the frame buffer would use a structure datatype to allow easier access to each member/byte
 	outColour = (uint8_t *)&pixel;
 
 	for (i=0; i<3; i++)
@@ -152,7 +195,11 @@ uint8_t i;
 	return(pixel);
 }
 
-
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief Rotates a rainbow around the LED strip
+*/
+// ------------------------------------------------------------------------------------------------------------
 void RainBowStep ( void )
 {
 static uint8_t step = 0;
@@ -178,6 +225,11 @@ uint8_t i = 0;
 	step ++;
 }
 
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief Make sure the SPI FIFO is not full, and add the bit pattern that matches the supplied 4bit nibble
+*/
+// ------------------------------------------------------------------------------------------------------------
 void SpiNibble ( uint8_t nibble )
 {
 	// wait while the FIFO is full
@@ -187,6 +239,11 @@ void SpiNibble ( uint8_t nibble )
 }
 
 
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief  Loops around the frame buffer sending each nibble to be the SPI bus
+*/
+// ------------------------------------------------------------------------------------------------------------
 void UpdateLedStrip_NibbleMode ( void )
 {
 uint32_t x = 0;
@@ -219,8 +276,13 @@ uint32_t currentColour = 0;
 
 }
 
-
-void StepMode ( void )
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief  Each button press add's that colour to the start of the strip, each call the framebuffer data is moved
+    		from the start towards the end
+*/
+// ------------------------------------------------------------------------------------------------------------
+void Pulse ( void )
 {
 uint8_t i = 0;
 
@@ -253,6 +315,12 @@ uint8_t i = 0;
 
 }
 
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief  Each button press add's that colour to the centre of the strip, each call the framebuffer data is moved
+    		from the middle to each end
+*/
+// ------------------------------------------------------------------------------------------------------------
 void CentrePulse ( void )
 {
 uint8_t i = 0;
@@ -294,6 +362,12 @@ uint32_t newColour = 0;
 	FrameBuffer[(NO_OF_RGB_LEDS/2)-1] = newColour;
 }
 
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief  Button press adds that colour to the LED Strip once the LED value is about to be shifted of the end
+    		it's sent back the beginning with it's brightness reduced.
+*/
+// ------------------------------------------------------------------------------------------------------------
 void Loopy ( void )
 {
 uint8_t i = 0;
@@ -325,6 +399,11 @@ uint32_t nextColour = 0;
 
 }
 
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief  Alternate LEDs Red and Green, fading up and down
+*/
+// ------------------------------------------------------------------------------------------------------------
 void Christmas (void)
 {
 static uint8_t green = 255;
@@ -375,21 +454,12 @@ static bool redUp = true;
 	}
 }
 
-void SingleStripRainbow(void)
-{
-uint8_t i = 0;
-static uint8_t brightness = 1;
-
-	for ( i=0; i<NO_OF_RGB_LEDS; i++ )
-	{
-		FrameBuffer[i] = ColourWheel(i, brightness);
-
-	}
-
-	brightness++;
-	if ( brightness > 3 ) brightness = 1;
-}
-
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief  Each lighting mode gets called here to update the framebuffer, the buffer then gets sent to the
+    		LEDs
+*/
+// ------------------------------------------------------------------------------------------------------------
 void SysTick_Handler(void)
 {
 static uint32_t msCounter = 0;
@@ -427,7 +497,7 @@ static bool buttonWasPressed = false;
 			break;
 
 			case COLOUR_BUTTON :
-				StepMode();
+				Pulse();
 			break;
 
 			case COLOUR_CHRISTMAS :
@@ -448,7 +518,11 @@ static bool buttonWasPressed = false;
 	}
 }
 
-// For my example I use 4 buttons
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief For my example I use 4 buttons
+*/
+// ------------------------------------------------------------------------------------------------------------
 void InitButtons ( void )
 {
 	// Enable internal Pull Ups on all of the buttons
@@ -463,6 +537,11 @@ void InitButtons ( void )
 	LPC_GPIO->DIR[1] &= ~(1<<20);
 }
 
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief Set up SPI and Button inputs
+*/
+// ------------------------------------------------------------------------------------------------------------
 void Init ( void )
 {
 	LpcLowPowerIoInit();
@@ -500,6 +579,11 @@ void Init ( void )
 	// SCR = 2, 36Mhz/(2+1) = 12Mhz Clock rate
 	LPC_SSP1->CR0 = 0 | 0xf | SSPCR0_SPH | 0x0D00;
 
+#ifdef INVERTED_COMS
+	// Set the SPI Bus to idle high, as it will be inverted to idle low
+	LPC_SSP1->CR0 |= 1<<6;
+#endif
+
 	// SSE - Enabled, Master
 	LPC_SSP1->CR1 = 0 | SSPCR1_SSE;
 
@@ -509,6 +593,11 @@ void Init ( void )
 	SysTick_Config(SYSTICK);
 }
 
+// ------------------------------------------------------------------------------------------------------------
+/*!
+    @brief Main Loop - Nothing here
+*/
+// ------------------------------------------------------------------------------------------------------------
 int main(void)
 {
 volatile static int i = 0;
